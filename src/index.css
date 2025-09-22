@@ -2,95 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Learnly Dark Theme Design System - Maroon & Black */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Learnly Dark Theme Colors */
+    --background: 0 0% 5.9%;  /* #0f0f0f - very dark background */
+    --foreground: 0 0% 100%;  /* #ffffff - white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 10.2%;  /* #1a1a1a - slightly lighter dark for cards */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 10.2%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 100% 25.1%;  /* #800000 - deep maroon */
+    --primary-foreground: 0 0% 100%;
+    
+    --maroon-glow: 0 100% 25.1% / 0.3;  /* maroon with transparency for glow */
+    --maroon-hover: 0 100% 30%;  /* lighter maroon for hover */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 13.3%;  /* darker secondary */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15.3%;
+    --muted-foreground: 0 0% 63.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 100% 25.1%;  /* maroon accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20.4%;  /* subtle border */
+    --input: 0 0% 15.3%;
+    --ring: 0 100% 25.1%;  /* maroon focus ring */
 
-    --radius: 0.5rem;
+    --radius: 1rem;  /* rounded-2xl */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar Colors */
+    --sidebar-background: 0 0% 7.8%;  /* slightly lighter than main bg */
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 100% 25.1%;  /* maroon */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 13.3%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20.4%;
+    --sidebar-ring: 0 100% 25.1%;
+
+    /* Custom Gradients */
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 5.9%), hsl(0 0% 7.8%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsl(0 0% 10.2% / 0.8), 
+      hsl(0 0% 15.3% / 0.6));
+    --gradient-maroon: linear-gradient(135deg, 
+      hsl(0 100% 25.1%), 
+      hsl(0 100% 30%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--maroon-glow));
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -102,4 +77,140 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply backdrop-blur-sm border border-border/50 rounded-2xl;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Maroon Glow Effect */
+  .maroon-glow {
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-smooth);
+  }
+
+  .maroon-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--maroon-glow));
+  }
+
+  /* Smooth Scrolling */
+  .lenis {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .lenis [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  /* Custom Button Variants */
+  .btn-maroon {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--maroon-hover))] 
+           px-6 py-3 rounded-2xl font-medium transition-all duration-300
+           hover:shadow-[0_0_20px_hsl(var(--maroon-glow))];
+  }
+
+  .btn-ghost-maroon {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground
+           px-6 py-3 rounded-2xl font-medium transition-all duration-300
+           hover:shadow-[0_0_15px_hsl(var(--maroon-glow))];
+  }
+
+  /* Progress Bar */
+  .progress-maroon {
+    @apply w-full bg-muted rounded-full h-3 overflow-hidden;
+  }
+
+  .progress-maroon .fill {
+    @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+    background: var(--gradient-maroon);
+  }
+
+  /* Input Styles */
+  .input-glass {
+    @apply glass-card bg-input border-border/50 px-4 py-3 
+           focus:ring-2 focus:ring-primary/50 focus:border-primary
+           placeholder:text-muted-foreground transition-all duration-200;
+  }
+}
+
+/* Calendar Theming for react-big-calendar */
+.rbc-calendar {
+  color: hsl(var(--foreground));
+  background: transparent;
+}
+
+.rbc-toolbar {
+  display: none; /* We use custom toolbar */
+}
+
+.rbc-month-view, .rbc-time-view, .rbc-agenda-view {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  background: hsl(var(--card));
+}
+
+.rbc-header {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 8px;
+  font-weight: 600;
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.rbc-day-bg {
+  background: hsl(var(--card));
+  border-right: 1px solid hsl(var(--border));
+}
+
+.rbc-day-bg.rbc-today {
+  background: hsl(var(--primary) / 0.1);
+}
+
+.rbc-off-range-bg {
+  background: hsl(var(--muted) / 0.3);
+}
+
+.rbc-date-cell {
+  color: hsl(var(--foreground));
+  padding: 4px 8px;
+}
+
+.rbc-date-cell.rbc-now {
+  color: hsl(var(--primary));
+  font-weight: bold;
+}
+
+.rbc-event {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.rbc-event-label {
+  color: hsl(var(--primary-foreground));
+}
+
+.rbc-show-more {
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+}
+
+.rbc-time-slot {
+  border-top: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+}
+
+.rbc-current-time-indicator {
+  background-color: hsl(var(--primary));
 }
